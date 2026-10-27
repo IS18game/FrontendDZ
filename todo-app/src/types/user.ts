@@ -5,10 +5,6 @@ export interface IПользователь {
   имя: string;
 }
 
-export interface IНастройкиПользователя {
-  компактныйРежим: boolean;
-}
-
 export interface IУведомление {
   идентификатор: number;
   сообщение: string;

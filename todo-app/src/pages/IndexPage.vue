@@ -14,7 +14,8 @@
       class="q-mb-md"
       color="primary"
       toggle-color="primary"
-      text-color="primary"
+      text-color="dark"
+      toggle-text-color="dark"
       :options="параметрыФильтра"
     />
     <q-inner-loading :showing="хранилищеЗадач.загружается" />

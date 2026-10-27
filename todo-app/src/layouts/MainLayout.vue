@@ -12,7 +12,7 @@
           @click="хранилищеИнтерфейса.переключитьТему"
         />
       </q-toolbar>
-      <q-breadcrumbs class="q-px-md q-pb-sm" active-color="white">
+      <q-breadcrumbs class="q-px-md q-pb-sm" active-color="dark">
         <q-breadcrumbs-el
           v-for="крошка in хлебныеКрошки"
           :key="крошка.метка"

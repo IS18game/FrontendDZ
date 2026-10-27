@@ -1,1 +1,13 @@
 
+:root {
+  --q-primary: #f2c037;
+}
+
+.bg-primary {
+  background: #f2c037 !important;
+  color: #242424 !important;
+}
+
+.text-primary {
+  color: #9a6900 !important;
+}

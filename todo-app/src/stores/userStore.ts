@@ -2,17 +2,13 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/composables/useLocalStorage';
 import { authService } from '@/services/authService';
-import type { IНастройкиПользователя, IПользователь } from '@/types';
+import type { IПользователь } from '@/types';
 
 export const useUserStore = defineStore('пользователь', () => {
   const пользователь = useLocalStorage<IПользователь | null>('пользователь', null);
-  const настройки = useLocalStorage<IНастройкиПользователя>('настройкиПользователя', {
-    компактныйРежим: false,
-  });
   const загрузка = ref<boolean>(false);
 
   const текущийПользователь = computed<IПользователь | null>(() => пользователь.value);
-  const текущиеНастройки = computed<IНастройкиПользователя>(() => настройки.value);
   const пользовательЗагружается = computed<boolean>(() => загрузка.value);
 
   const войти = async (имя: string): Promise<void> => {
@@ -41,20 +37,11 @@ export const useUserStore = defineStore('пользователь', () => {
     пользователь.value = null;
   };
 
-  const обновитьНастройки = (новыеНастройки: Partial<IНастройкиПользователя>): void => {
-    настройки.value = {
-      ...настройки.value,
-      ...новыеНастройки,
-    };
-  };
-
   return {
     текущийПользователь,
-    текущиеНастройки,
     пользовательЗагружается,
     войти,
     выйти,
-    обновитьНастройки,
   };
 });
 
