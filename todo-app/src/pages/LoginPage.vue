@@ -3,6 +3,7 @@
     <q-card class="col-12 col-sm-6 col-md-4">
       <q-card-section>
         <div class="text-h6">Вход</div>
+        <div v-if="демо" class="text-caption">Демонстрационный режим: используйте любой email и пароль от 6 символов. Данные хранятся в этом браузере.</div>
       </q-card-section>
       <q-card-section>
         <q-form @submit.prevent="войти">
@@ -43,6 +44,7 @@ import { useUserStore } from '@/stores/userStore';
 import { правилоEmail, правилоПароля } from '@/utils/validation';
 
 const router = useRouter();
+const демо = import.meta.env.PROD;
 const маршрут = useRoute();
 const хранилищеПользователя = useUserStore();
 const значения = reactive({ email: '', пароль: '' });
