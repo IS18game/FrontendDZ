@@ -58,6 +58,11 @@ export const useTodoStore = defineStore('задачи', () => {
   };
 
   const добавитьЗадачу = async (название: string): Promise<void> => {
+    const нормализованноеНазвание = название.trim().toLowerCase();
+    if (задачи.value.some((задача) => задача.название.trim().toLowerCase() === нормализованноеНазвание)) {
+      ошибка.value = получитьСообщениеОшибки(null, 'Такая задача уже существует');
+      return;
+    }
     загрузка.value = true;
     ошибка.value = null;
 
