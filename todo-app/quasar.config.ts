@@ -34,7 +34,7 @@ export default defineConfig((/* ctx */) => {
       minify: true,
       sourcemap: false,
       reportCompressedSize: true,
-      publicPath: process.env.GITHUB_ACTIONS ? '/todo-app/' : '/',
+      publicPath: process.env.GITHUB_ACTIONS ? '/FrontendDZ/' : '/',
       rollupOptions: {
         output: {
           manualChunks: {
